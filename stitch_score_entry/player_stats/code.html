@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#ffc6cd",
+              "on-surface-variant": "#824c54",
+              "primary": "#af2525",
+              "outline": "#a1676f",
+              "primary-dim": "#9d171a",
+              "on-secondary": "#ffeff0",
+              "error": "#b41340",
+              "on-primary": "#ffefed",
+              "outline-variant": "#dd9ca4",
+              "error-container": "#f74b6d",
+              "surface-bright": "#fff4f4",
+              "inverse-primary": "#f85b53",
+              "on-background": "#4d2128",
+              "on-error-container": "#510017",
+              "primary-fixed": "#ff766c",
+              "tertiary-fixed": "#d09aff",
+              "on-error": "#ffefef",
+              "on-primary-fixed-variant": "#600006",
+              "on-primary-container": "#4f0004",
+              "tertiary-fixed-dim": "#c38bf5",
+              "on-secondary-fixed-variant": "#912b42",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#fbefff",
+              "secondary-dim": "#8f2a41",
+              "on-tertiary-fixed": "#280047",
+              "on-surface": "#4d2128",
+              "tertiary": "#7742a6",
+              "surface-container-high": "#ffd9dd",
+              "inverse-on-surface": "#cb8c94",
+              "surface": "#fff4f4",
+              "tertiary-dim": "#6a3599",
+              "on-primary-fixed": "#000000",
+              "inverse-surface": "#240209",
+              "surface-container-low": "#ffeced",
+              "background": "#fff4f4",
+              "on-tertiary-fixed-variant": "#521a81",
+              "tertiary-container": "#d09aff",
+              "surface-container": "#ffe1e4",
+              "secondary": "#9f364d",
+              "secondary-fixed": "#ffc2c9",
+              "primary-fixed-dim": "#fc5e55",
+              "on-secondary-fixed": "#6a0b27",
+              "surface-container-highest": "#ffd2d6",
+              "secondary-fixed-dim": "#ffaeb9",
+              "secondary-container": "#ffc2c9",
+              "on-secondary-container": "#84213a",
+              "on-tertiary-container": "#490c77",
+              "surface-variant": "#ffd2d6",
+              "surface-tint": "#af2525",
+              "primary-container": "#ff766c",
+              "error-dim": "#a70138"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #af2525 0%, #ff766c 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 244, 244, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-50 bg-stone-50 dark:bg-stone-950 flex flex-col py-6 border-r border-stone-100 dark:border-stone-800 font-['Manrope'] font-medium text-sm">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-extrabold text-red-700 dark:text-red-500">SmashRank</h1>
+<p class="text-xs text-stone-500 dark:text-stone-400 mt-1">私人羽球聯賽</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center px-4 py-3 rounded-xl text-stone-500 dark:text-stone-400 hover:text-stone-900 hover:bg-stone-100 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="leaderboard">leaderboard</span>
+                排行榜
+            </a>
+<a class="flex items-center px-4 py-3 rounded-xl text-stone-500 dark:text-stone-400 hover:text-stone-900 hover:bg-stone-100 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="edit_square">edit_square</span>
+                比分輸入
+            </a>
+<a class="flex items-center px-4 py-3 rounded-xl text-stone-500 dark:text-stone-400 hover:text-stone-900 hover:bg-stone-100 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="history">history</span>
+                比賽紀錄
+            </a>
+<a class="flex items-center px-4 py-3 rounded-xl text-red-700 dark:text-red-500 bg-red-50 dark:bg-red-900/20 font-bold border-r-4 border-red-700 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                球員數據
+            </a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full kinetic-gradient text-on-primary py-3 rounded-full font-bold shadow-lg active:scale-95 transition-transform">
+                開始比賽
+            </button>
+<div class="pt-4 border-t border-stone-100 dark:border-stone-800">
+<a class="flex items-center px-4 py-2 text-stone-500 hover:text-stone-900 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+                    設定
+                </a>
+<a class="flex items-center px-4 py-2 text-stone-500 hover:text-stone-900 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+                    登出
+                </a>
+</div>
+</div>
+</aside>
+<main class="ml-64 p-8 min-h-screen">
+<!-- Top Header -->
+<header class="flex justify-between items-center mb-10">
+<div>
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-on-background">球員數據中心</h2>
+<p class="text-on-surface-variant font-medium">歡迎回來，陳大衛 (David Chen)</p>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="Professional badminton player portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUyBGW2I7JJZSJaJ9SOrl6heGmImvFAah5CbLgtxL29PZb5d0N-6eXKQxOMCrBUeMmV15afYTHki2l7Maqhf0zDDYTvIRNMajtU0-lXRyVbA2LZ0-FDDxDuz5Afk90JsLC0-KudRrmC1r6J3kxWnJVrsB6jgADOdlDPVeX_AxsFMkuSjCS3eYeRPV5IZi02g00ZLJ9up5ckEwbdfqfyF3rbpW7SvdSZpgvtjaR5QecQ6dhPAVCpi7bxNb1NfL0wgz-yzgqatv5H2l9"/>
+</div>
+</div>
+</header>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Hero Metric: Current Rank -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-[2rem] p-8 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-symbols-outlined text-[10rem]" data-icon="military_tech">military_tech</span>
+</div>
+<div>
+<span class="inline-block px-4 py-1 rounded-full bg-primary-container text-on-primary-container text-xs font-bold mb-4 uppercase tracking-wider">菁英組別 Elite</span>
+<h3 class="text-on-surface-variant font-label text-sm uppercase font-bold tracking-widest">目前排名</h3>
+</div>
+<div class="mt-4 flex items-baseline space-x-2">
+<span class="text-7xl font-headline font-black text-primary">04</span>
+<span class="text-on-surface-variant font-headline font-bold">/ 128</span>
+</div>
+<div class="mt-6 flex items-center text-error font-bold">
+<span class="material-symbols-outlined mr-1" data-icon="trending_up">trending_up</span>
+<span>上週晉升 2 名</span>
+</div>
+</div>
+<!-- Key Metrics Cluster -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-6">
+<div class="bg-surface-container-low rounded-[2rem] p-6 border-l-4 border-primary">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">總積分</p>
+<p class="text-4xl font-headline font-black text-on-background">2,480</p>
+<div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-4/5"></div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-[2rem] p-6">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">勝率</p>
+<p class="text-4xl font-headline font-black text-on-background">76.4%</p>
+<p class="text-xs text-on-surface-variant mt-2">近 10 場贏 8 場</p>
+</div>
+<div class="bg-surface-container-low rounded-[2rem] p-6">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">總場次</p>
+<p class="text-4xl font-headline font-black text-on-background">152</p>
+<p class="text-xs text-on-surface-variant mt-2">116 勝 / 36 負</p>
+</div>
+<!-- Chart Area -->
+<div class="col-span-3 bg-surface-container-lowest rounded-[2rem] p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-headline font-bold text-on-background">積分趨勢 (Points History)</h3>
+<div class="flex space-x-2">
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-surface-container-high text-on-surface">3個月</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full text-on-surface-variant hover:bg-surface-container">6個月</button>
+</div>
+</div>
+<!-- Mock Line Chart -->
+<div class="h-48 w-full flex items-end justify-between relative px-2">
+<div class="absolute inset-0 flex flex-col justify-between">
+<div class="border-b border-outline-variant opacity-20 w-full h-0"></div>
+<div class="border-b border-outline-variant opacity-20 w-full h-0"></div>
+<div class="border-b border-outline-variant opacity-20 w-full h-0"></div>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-2 h-2 rounded-full bg-primary mb-[-4px] z-10"></div>
+<div class="w-full bg-primary/10 h-16 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full bg-primary/20"></div>
+</div>
+<span class="text-[10px] mt-2 font-bold text-on-surface-variant">JAN</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-2 h-2 rounded-full bg-primary mb-[-4px] z-10"></div>
+<div class="w-full bg-primary/10 h-24 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full bg-primary/20"></div>
+</div>
+<span class="text-[10px] mt-2 font-bold text-on-surface-variant">FEB</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-2 h-2 rounded-full bg-primary mb-[-4px] z-10"></div>
+<div class="w-full bg-primary/10 h-20 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full bg-primary/20"></div>
+</div>
+<span class="text-[10px] mt-2 font-bold text-on-surface-variant">MAR</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-2 h-2 rounded-full bg-primary mb-[-4px] z-10"></div>
+<div class="w-full bg-primary/10 h-32 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full bg-primary/20"></div>
+</div>
+<span class="text-[10px] mt-2 font-bold text-on-surface-variant">APR</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-3 h-3 rounded-full bg-primary mb-[-6px] z-10 ring-4 ring-primary-container/30"></div>
+<div class="w-full bg-primary/20 h-40 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full bg-primary/40"></div>
+</div>
+<span class="text-[10px] mt-2 font-bold text-primary">MAY</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Best Partners Section -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-high rounded-[2rem] p-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-headline font-bold text-on-background">最佳拍檔</h3>
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+</div>
+<div class="space-y-4">
+<!-- Partner Card 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl flex items-center space-x-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Badminton player partner profile 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeHHv8Cd0hQzOgvyzPLw800DXDiE4KbtoyUsnu1Pyit-4pEF4jCqaJ-e8djOTZcp2HPSJPjgHtW4vqbpmXIyxbPDJuObBfyD6Y4ndhMv5Re_IiR5zCtHv5RGZ1j96bXj0cAD9oTJRaNoDvoyxeifs6kvFoIb3ewi1bgHg2EKfRqbg2cYNtZn0LBHeB9jWL4A6rLH7F8irMWtjjWEci-T0eJKMzYhkXn_zwEJKYs_nCgiQd5isUiMofbWk4I7VMacu_4FBo_pLM67Az"/>
+<div class="flex-1">
+<p class="font-bold text-on-surface">林小明 (Leo Lin)</p>
+<p class="text-xs text-on-surface-variant">共同參賽 24 場</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-black text-lg">92%</p>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">勝率</p>
+</div>
+</div>
+<!-- Partner Card 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl flex items-center space-x-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Badminton player partner profile 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQA1eI-EAK4fWb3mnzLWRT7iGgPG62Kl8f33CbVvOzqsdVTgNYytZ6ntPqTf1R_vQS07RtpWq7ZCdqc-31C-7mtL1hzfiP906eprBfaiT5FDdAGUKEHt8UBHUXHJm4fvv_Xs0BrAAag_AfVNeKQ3hKJqHCmkoB47V-UBaTgtJcN1dyjb4TBZLybJwONfn85Ny6WrJEElpAwc0lub7R1EW2XsKR157oy3PNRS3yk33_2CYsbdsVragqwG9WhZCpzZ_XhvYOLnfIsScj"/>
+<div class="flex-1">
+<p class="font-bold text-on-surface">張雅婷 (Tina Chang)</p>
+<p class="text-xs text-on-surface-variant">共同參賽 18 場</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-black text-lg">85%</p>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">勝率</p>
+</div>
+</div>
+<!-- Partner Card 3 -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl flex items-center space-x-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Badminton player partner profile 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPcSSfZicl9zVs-QUVUjUQKxg94V4Gcs1xviRavN3aOL7rOfKtjZUN2_OhOhRKIVD39VXlhIB9Dnv92lCi8JfcYbBR1Op0k7JoBtWQNxLvwkmoDfYsqVDVBAP4O2la5JG0CmJKdseRvu-dU3bQSz665mW54qSnRZ-LOP0apJ9-gU56ChIHTO2pl4Gnu8UuGQf6fj6b45fzhSA7KkD-JjrVbEkjHb8jc-N54jJpGTXSZE2yR2qaeV6hH7XbmBbEui2zvAC6qJw8MqAW"/>
+<div class="flex-1">
+<p class="font-bold text-on-surface">王志豪 (Kevin Wang)</p>
+<p class="text-xs text-on-surface-variant">共同參賽 12 場</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-black text-lg">75%</p>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant">勝率</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 text-sm font-bold text-primary hover:bg-white/50 rounded-xl transition-colors">
+                    查看所有搭檔數據
+                </button>
+</div>
+<!-- Recent Achievements / Activity -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-[2rem] p-8">
+<h3 class="text-xl font-headline font-bold text-on-background mb-6">近期戰報</h3>
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">
+<th class="pb-4 px-2">比賽日期</th>
+<th class="pb-4 px-2">賽事類型</th>
+<th class="pb-4 px-2">結果</th>
+<th class="pb-4 px-2">對手</th>
+<th class="pb-4 px-2 text-right">積分變動</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-t border-surface-container">
+<td class="py-4 px-2 font-medium">2023.10.24</td>
+<td class="py-4 px-2"><span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container text-[10px] font-bold">男子雙打</span></td>
+<td class="py-4 px-2"><span class="text-primary font-bold">WIN</span></td>
+<td class="py-4 px-2 text-on-surface-variant">李&amp;王</td>
+<td class="py-4 px-2 text-right text-primary font-bold">+24</td>
+</tr>
+<tr class="border-t border-surface-container">
+<td class="py-4 px-2 font-medium">2023.10.21</td>
+<td class="py-4 px-2"><span class="px-2 py-1 rounded bg-tertiary-container text-on-tertiary-container text-[10px] font-bold">男子單打</span></td>
+<td class="py-4 px-2"><span class="text-on-surface-variant font-bold">LOSS</span></td>
+<td class="py-4 px-2 text-on-surface-variant">高天賜</td>
+<td class="py-4 px-2 text-right text-on-surface-variant font-bold">-12</td>
+</tr>
+<tr class="border-t border-surface-container">
+<td class="py-4 px-2 font-medium">2023.10.18</td>
+<td class="py-4 px-2"><span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container text-[10px] font-bold">男子雙打</span></td>
+<td class="py-4 px-2"><span class="text-primary font-bold">WIN</span></td>
+<td class="py-4 px-2 text-on-surface-variant">蔡&amp;周</td>
+<td class="py-4 px-2 text-right text-primary font-bold">+30</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button - Only on Dashboards as per rules -->
+<button class="fixed bottom-8 right-8 w-16 h-16 rounded-full kinetic-gradient text-white shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

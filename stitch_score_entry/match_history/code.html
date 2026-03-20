@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#ffc6cd",
+              "on-surface-variant": "#824c54",
+              "primary": "#af2525",
+              "outline": "#a1676f",
+              "primary-dim": "#9d171a",
+              "on-secondary": "#ffeff0",
+              "error": "#b41340",
+              "on-primary": "#ffefed",
+              "outline-variant": "#dd9ca4",
+              "error-container": "#f74b6d",
+              "surface-bright": "#fff4f4",
+              "inverse-primary": "#f85b53",
+              "on-background": "#4d2128",
+              "on-error-container": "#510017",
+              "primary-fixed": "#ff766c",
+              "tertiary-fixed": "#d09aff",
+              "on-error": "#ffefef",
+              "on-primary-fixed-variant": "#600006",
+              "on-primary-container": "#4f0004",
+              "tertiary-fixed-dim": "#c38bf5",
+              "on-secondary-fixed-variant": "#912b42",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#fbefff",
+              "secondary-dim": "#8f2a41",
+              "on-tertiary-fixed": "#280047",
+              "on-surface": "#4d2128",
+              "tertiary": "#7742a6",
+              "surface-container-high": "#ffd9dd",
+              "inverse-on-surface": "#cb8c94",
+              "surface": "#fff4f4",
+              "tertiary-dim": "#6a3599",
+              "on-primary-fixed": "#000000",
+              "inverse-surface": "#240209",
+              "surface-container-low": "#ffeced",
+              "background": "#fff4f4",
+              "on-tertiary-fixed-variant": "#521a81",
+              "tertiary-container": "#d09aff",
+              "surface-container": "#ffe1e4",
+              "secondary": "#9f364d",
+              "secondary-fixed": "#ffc2c9",
+              "primary-fixed-dim": "#fc5e55",
+              "on-secondary-fixed": "#6a0b27",
+              "surface-container-highest": "#ffd2d6",
+              "secondary-fixed-dim": "#ffaeb9",
+              "secondary-container": "#ffc2c9",
+              "on-secondary-container": "#84213a",
+              "on-tertiary-container": "#490c77",
+              "surface-variant": "#ffd2d6",
+              "surface-tint": "#af2525",
+              "primary-container": "#ff766c",
+              "error-dim": "#a70138"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-50 bg-stone-50 dark:bg-stone-950 flex flex-col h-full py-6 border-r border-stone-100 dark:border-stone-800 font-['Manrope'] font-medium text-sm hidden md:flex">
+<div class="px-6 mb-8">
+<h1 class="text-xl font-extrabold text-red-700 dark:text-red-500">SmashRank</h1>
+<p class="text-stone-500 text-xs mt-1">私人羽球聯賽</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>排行榜</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="edit_square">edit_square</span>
+<span>比分輸入</span>
+</a>
+<!-- Active Navigation: 比賽紀錄 (Match History) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-700 dark:text-red-500 bg-red-50 dark:bg-red-900/20 font-bold border-r-4 border-red-700 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span>比賽紀錄</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>球員數據</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-3 rounded-full font-bold shadow-md active:scale-95 transition-all">
+                開始比賽
+            </button>
+<div class="pt-4 border-t border-stone-100 dark:border-stone-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-stone-500 hover:text-stone-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>設定</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-stone-500 hover:text-stone-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span>
+<span>登出</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen">
+<!-- TopAppBar Shell -->
+<header class="bg-white dark:bg-stone-900 flex justify-between items-center px-6 py-3 w-full border-b border-stone-100 dark:border-stone-800 font-['Manrope'] antialiased sticky top-0 z-40 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-stone-600" data-icon="menu">menu</span>
+<span class="text-2xl font-black tracking-tight text-red-700 dark:text-red-500 md:hidden">SmashRank</span>
+<h2 class="hidden md:block text-xl font-bold text-on-surface">比賽紀錄</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-stone-600 hover:bg-stone-50 rounded-full transition-colors active:scale-95" title="搜尋">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 text-stone-600 hover:bg-stone-50 rounded-full transition-colors active:scale-95" title="通知">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="用戶頭像" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="User profile avatar circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdD9i9GlOQ6cdThcRN5ER_sW-_ygmw9YIo-aT9izyxFU4u6H6E9N8Zi9Ew3IdU8qMVf3q3iN1lvjYfZMY1E3QiEk-4m59Mw1OHRoyb8RgalR_53oZzzkQ2zCEQ7UuZxM2IJg8AIbeCvTXWr69zNRl1zRy--AgUXmqaOaCkrh_tea4Qg72cb-xH2PAdbZQ_jjxuXypjngbwMrIXLXNqq06NCIIav_4tYTNn5-SYrFoGnq7s0AYktzC8qRx8wBlV8t-jQfE2WLTjxVMc"/>
+</div>
+</header>
+<!-- Content Body -->
+<div class="p-6 max-w-6xl mx-auto">
+<!-- Stats Overview - Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="col-span-1 md:col-span-2 bg-surface-container-low rounded-3xl p-8 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-sm font-label text-on-surface-variant mb-2">本月賽事總計</p>
+<h3 class="text-5xl font-headline font-black tracking-tighter text-primary">48 <span class="text-xl">場次</span></h3>
+<div class="mt-6 flex gap-4">
+<span class="px-4 py-1.5 bg-white/60 rounded-full text-xs font-bold text-primary">↑ 12% 較上月增長</span>
+</div>
+</div>
+<!-- Decorative Graphic -->
+<div class="absolute right-[-20px] bottom-[-20px] opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[180px] rotate-12" data-icon="sports_tennis">sports_tennis</span>
+</div>
+</div>
+<div class="bg-primary text-on-primary rounded-3xl p-8 flex flex-col justify-between shadow-xl shadow-primary/10">
+<div>
+<p class="text-sm font-label opacity-80">最高勝率組合</p>
+<h4 class="text-xl font-headline font-bold mt-2">陳大明 &amp; 李小華</h4>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-4xl font-black tracking-tighter">89%</span>
+<span class="material-symbols-outlined text-3xl" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Filter & Search Bar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div class="flex gap-2">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full text-sm font-bold">全部</button>
+<button class="px-6 py-2 bg-surface-container hover:bg-surface-container-high transition-colors rounded-full text-sm font-medium">男子雙打</button>
+<button class="px-6 py-2 bg-surface-container hover:bg-surface-container-high transition-colors rounded-full text-sm font-medium">混合雙打</button>
+</div>
+<div class="text-sm text-on-surface-variant font-medium">
+                    顯示最近 20 筆比賽
+                </div>
+</div>
+<!-- Match History List - No-Line Design -->
+<div class="space-y-4">
+<!-- Match Row 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 flex flex-col lg:flex-row items-center gap-6 group hover:shadow-lg transition-shadow duration-300">
+<div class="flex-shrink-0 w-full lg:w-40 text-center lg:text-left">
+<p class="text-xs font-label text-on-surface-variant uppercase tracking-wider mb-1">2023.10.24</p>
+<p class="text-sm font-bold text-on-surface">19:30</p>
+</div>
+<div class="flex-1 flex flex-col sm:flex-row items-center justify-between gap-8 w-full">
+<!-- Team A -->
+<div class="flex-1 text-right flex flex-col items-end gap-2">
+<div class="flex items-center gap-3">
+<span class="text-base font-bold">王志明 &amp; 林嘉欣</span>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">A</div>
+</div>
+</div>
+<!-- Score Center -->
+<div class="flex items-center gap-6 px-8 py-2 bg-surface-container-low rounded-2xl">
+<span class="text-2xl font-headline font-black text-primary">21</span>
+<span class="text-on-surface-variant font-bold">:</span>
+<span class="text-2xl font-headline font-black text-on-surface-variant">18</span>
+</div>
+<!-- Team B -->
+<div class="flex-1 text-left flex flex-col items-start gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">B</div>
+<span class="text-base font-medium text-on-surface-variant">張家豪 &amp; 許美玲</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-full lg:w-32 flex justify-center lg:justify-end">
+<span class="px-4 py-1.5 bg-primary/10 text-primary text-xs font-black rounded-full tracking-widest">WINNER</span>
+</div>
+</div>
+<!-- Match Row 2 -->
+<div class="bg-surface-container-low/50 rounded-2xl p-6 flex flex-col lg:flex-row items-center gap-6 group hover:shadow-md transition-shadow duration-300">
+<div class="flex-shrink-0 w-full lg:w-40 text-center lg:text-left">
+<p class="text-xs font-label text-on-surface-variant uppercase tracking-wider mb-1">2023.10.23</p>
+<p class="text-sm font-bold text-on-surface">21:15</p>
+</div>
+<div class="flex-1 flex flex-col sm:flex-row items-center justify-between gap-8 w-full">
+<div class="flex-1 text-right flex flex-col items-end gap-2">
+<div class="flex items-center gap-3">
+<span class="text-base font-medium text-on-surface-variant">李智凱 &amp; 陳思妤</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">A</div>
+</div>
+</div>
+<div class="flex items-center gap-6 px-8 py-2 bg-surface-container-high rounded-2xl">
+<span class="text-2xl font-headline font-black text-on-surface-variant">15</span>
+<span class="text-on-surface-variant font-bold">:</span>
+<span class="text-2xl font-headline font-black text-primary">21</span>
+</div>
+<div class="flex-1 text-left flex flex-col items-start gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">B</div>
+<span class="text-base font-bold">黃國倫 &amp; 趙又廷</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-full lg:w-32 flex justify-center lg:justify-end">
+<span class="px-4 py-1.5 bg-stone-200 text-stone-600 text-xs font-bold rounded-full">DETAILS</span>
+</div>
+</div>
+<!-- Match Row 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 flex flex-col lg:flex-row items-center gap-6 group hover:shadow-lg transition-shadow duration-300">
+<div class="flex-shrink-0 w-full lg:w-40 text-center lg:text-left">
+<p class="text-xs font-label text-on-surface-variant uppercase tracking-wider mb-1">2023.10.22</p>
+<p class="text-sm font-bold text-on-surface">18:00</p>
+</div>
+<div class="flex-1 flex flex-col sm:flex-row items-center justify-between gap-8 w-full">
+<div class="flex-1 text-right flex flex-col items-end gap-2">
+<div class="flex items-center gap-3">
+<span class="text-base font-bold">周杰倫 &amp; 蔡依林</span>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">A</div>
+</div>
+</div>
+<div class="flex items-center gap-6 px-8 py-2 bg-surface-container-low rounded-2xl">
+<span class="text-2xl font-headline font-black text-primary">30</span>
+<span class="text-on-surface-variant font-bold">:</span>
+<span class="text-2xl font-headline font-black text-on-surface-variant">28</span>
+</div>
+<div class="flex-1 text-left flex flex-col items-start gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">B</div>
+<span class="text-base font-medium text-on-surface-variant">蕭敬騰 &amp; 張惠妹</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-full lg:w-32 flex justify-center lg:justify-end">
+<span class="px-4 py-1.5 bg-primary/10 text-primary text-xs font-black rounded-full tracking-widest">WINNER</span>
+</div>
+</div>
+<!-- Match Row 4 -->
+<div class="bg-surface-container-low/50 rounded-2xl p-6 flex flex-col lg:flex-row items-center gap-6 group hover:shadow-md transition-shadow duration-300">
+<div class="flex-shrink-0 w-full lg:w-40 text-center lg:text-left">
+<p class="text-xs font-label text-on-surface-variant uppercase tracking-wider mb-1">2023.10.21</p>
+<p class="text-sm font-bold text-on-surface">20:45</p>
+</div>
+<div class="flex-1 flex flex-col sm:flex-row items-center justify-between gap-8 w-full">
+<div class="flex-1 text-right flex flex-col items-end gap-2">
+<div class="flex items-center gap-3">
+<span class="text-base font-medium text-on-surface-variant">陳冠希 &amp; 謝霆鋒</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">A</div>
+</div>
+</div>
+<div class="flex items-center gap-6 px-8 py-2 bg-surface-container-high rounded-2xl">
+<span class="text-2xl font-headline font-black text-on-surface-variant">19</span>
+<span class="text-on-surface-variant font-bold">:</span>
+<span class="text-2xl font-headline font-black text-primary">21</span>
+</div>
+<div class="flex-1 text-left flex flex-col items-start gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">B</div>
+<span class="text-base font-bold">古天樂 &amp; 吳彥祖</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-full lg:w-32 flex justify-center lg:justify-end">
+<span class="px-4 py-1.5 bg-stone-200 text-stone-600 text-xs font-bold rounded-full">DETAILS</span>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high transition-colors font-medium">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high transition-colors font-medium">3</button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-stone-900 border-t border-stone-100 dark:border-stone-800 flex justify-around items-center px-4 py-2 z-50">
+<a class="flex flex-col items-center gap-1 p-2 text-stone-600 dark:text-stone-400" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="text-[10px] font-medium">排行榜</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-stone-600 dark:text-stone-400" href="#">
+<span class="material-symbols-outlined" data-icon="edit_square">edit_square</span>
+<span class="text-[10px] font-medium">比分輸入</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-red-700 dark:text-red-500 font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-[10px]">比賽紀錄</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-stone-600 dark:text-stone-400" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-[10px] font-medium">數據</span>
+</a>
+</nav>
+<!-- FAB Suppression Rule Check: Hidden on History Page -->
+</body></html>
